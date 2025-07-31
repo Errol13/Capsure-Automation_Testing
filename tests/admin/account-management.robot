@@ -5,6 +5,7 @@ Resource  ../../variables/variables.robot
 
 *** Test Cases ***
 Login As Admin
+    [Documentation]  ID:  TC_ADMIN_001a | Login with valid admin credentials
     Open Browser  ${ADMIN_URL}  ${BROWSER}
     Input Text  id=data.email  ${ADMIN_EMAIL}
     Input Text  id=data.password  ${ADMIN_PASSWORD}
