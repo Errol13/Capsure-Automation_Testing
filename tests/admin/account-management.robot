@@ -1,7 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
-Resource  ../../variables/keywords.robot
 Resource  ../../variables/variables.robot
+Resource  ../../resources/common.robot
 
 *** Test Cases ***
 Login As Admin
@@ -11,5 +11,5 @@ Login As Admin
     Input Text  id=data.password  ${ADMIN_PASSWORD}
     Click Button  xpath=//button[@type='submit']
     Wait Until Page Contains Element  xpath=//h1[contains(text(), 'Dashboard')]
-    Capture Page Screenshot  screenshots/admin/successful_login_admin.png
+    Capture Overwrite Screenshot  screenshots/admin/successful_login_admin.png
     Close Browser

@@ -1,272 +1,426 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-08-01T04:25:18.182559" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-08-01T20:42:46.432516" rpa="false" schemaversion="5">
 <suite id="s1" name="Tests" source="/home/errol-john/Documents/capsure-automation-tests/tests">
 <suite id="s1-s1" name="Admin" source="/home/errol-john/Documents/capsure-automation-tests/tests/admin">
 <suite id="s1-s1-s1" name="Account-Management" source="/home/errol-john/Documents/capsure-automation-tests/tests/admin/account-management.robot">
 <test id="s1-s1-s1-t1" name="Login As Admin" line="7">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:18.402195" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/admin/login'.</msg>
+<msg time="2025-08-01T20:42:46.660549" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/admin/login'.</msg>
 <arg>${ADMIN_URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-01T04:25:18.401735" elapsed="2.510368"/>
+<status status="PASS" start="2025-08-01T20:42:46.660135" elapsed="3.936189"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:20.913357" level="INFO">Typing text 'admin@gmail.com' into text field 'id=data.email'.</msg>
+<msg time="2025-08-01T20:42:50.597495" level="INFO">Typing text 'admin@gmail.com' into text field 'id=data.email'.</msg>
 <arg>id=data.email</arg>
 <arg>${ADMIN_EMAIL}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-01T04:25:20.912608" elapsed="0.182874"/>
+<status status="PASS" start="2025-08-01T20:42:50.596735" elapsed="0.179233"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:21.096146" level="INFO">Typing text 'admin 1234!' into text field 'id=data.password'.</msg>
+<msg time="2025-08-01T20:42:50.776763" level="INFO">Typing text 'admin 1234!' into text field 'id=data.password'.</msg>
 <arg>id=data.password</arg>
 <arg>${ADMIN_PASSWORD}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-01T04:25:21.095806" elapsed="0.145219"/>
+<status status="PASS" start="2025-08-01T20:42:50.776402" elapsed="0.143003"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:21.241661" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<msg time="2025-08-01T20:42:50.920020" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
 <arg>xpath=//button[@type='submit']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-01T04:25:21.241358" elapsed="0.147234"/>
+<status status="PASS" start="2025-08-01T20:42:50.919721" elapsed="0.151332"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>xpath=//h1[contains(text(), 'Dashboard')]</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-08-01T04:25:21.388957" elapsed="1.197977"/>
+<status status="PASS" start="2025-08-01T20:42:51.071427" elapsed="0.989989"/>
+</kw>
+<kw name="Capture Overwrite Screenshot" owner="common">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2025-08-01T20:42:52.065883" level="INFO" html="true">Removed file '&lt;a href="file:///home/errol-john/Documents/capsure-automation-tests/screenshots/admin/successful_login_admin.png"&gt;/home/errol-john/Documents/capsure-automation-tests/screenshots/admin/successful_login_admin.png&lt;/a&gt;'.</msg>
+<arg>${screenshot_path}</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2025-08-01T20:42:52.065440" elapsed="0.000590"/>
+</kw>
+<arg>Remove File</arg>
+<arg>${screenshot_path}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-01T20:42:52.065121" elapsed="0.001021"/>
 </kw>
 <kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:22.894388" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/admin/successful_login_admin.png"&gt;&lt;img src="screenshots/admin/successful_login_admin.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>screenshots/admin/successful_login_admin.png</arg>
+<msg time="2025-08-01T20:42:52.383802" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/admin/successful_login_admin.png"&gt;&lt;img src="screenshots/admin/successful_login_admin.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${screenshot_path}</arg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-01T04:25:22.587472" elapsed="0.307059"/>
+<status status="PASS" start="2025-08-01T20:42:52.066312" elapsed="0.317631"/>
+</kw>
+<arg>screenshots/admin/successful_login_admin.png</arg>
+<doc>This keyword captures a screenshot and overwrites the existing one.</doc>
+<status status="PASS" start="2025-08-01T20:42:52.061950" elapsed="0.322145"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-01T04:25:22.894800" elapsed="0.122631"/>
+<status status="PASS" start="2025-08-01T20:42:52.384330" elapsed="0.124600"/>
 </kw>
 <doc>ID:  TC_ADMIN_001a | Login with valid admin credentials</doc>
-<status status="PASS" start="2025-08-01T04:25:18.400162" elapsed="4.617762"/>
+<status status="PASS" start="2025-08-01T20:42:46.658523" elapsed="5.850839"/>
 </test>
-<status status="PASS" start="2025-08-01T04:25:18.220480" elapsed="4.798107"/>
+<status status="PASS" start="2025-08-01T20:42:46.468424" elapsed="6.041644"/>
 </suite>
-<status status="PASS" start="2025-08-01T04:25:18.218048" elapsed="4.801351"/>
+<status status="PASS" start="2025-08-01T20:42:46.466761" elapsed="6.044107"/>
 </suite>
 <suite id="s1-s2" name="Client" source="/home/errol-john/Documents/capsure-automation-tests/tests/client">
 <suite id="s1-s2-s1" name="Account-Management" source="/home/errol-john/Documents/capsure-automation-tests/tests/client/account-management.robot">
 <test id="s1-s2-s1-t1" name="Login As Client" line="8">
-<kw name="Login to Application" owner="keywords">
+<kw name="Login to Application" owner="common">
+<kw name="Open Browser To Application" owner="common">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:23.026745" level="INFO">Opening browser 'chrome' to base url 'http://localhost/login'.</msg>
-<arg>${LOGIN_URL}</arg>
-<arg>chrome</arg>
+<msg time="2025-08-01T20:42:52.522452" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/login'.</msg>
+<arg>${BASE_URL}/${target_url}</arg>
+<arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-01T04:25:23.026417" elapsed="2.565358"/>
+<status status="PASS" start="2025-08-01T20:42:52.521926" elapsed="2.561763"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-01T20:42:55.084061" elapsed="0.052870"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-01T20:42:55.137751" level="INFO">Opened browser to http://localhost</msg>
+<arg>Opened browser to ${BASE_URL}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-01T20:42:55.137379" elapsed="0.000493"/>
+</kw>
+<arg>login</arg>
+<doc>This keyword opens the browser to the application base URL plus the desired target URL.</doc>
+<status status="PASS" start="2025-08-01T20:42:52.521377" elapsed="2.616741"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:25.592455" level="INFO">Typing text 'pmcastro@example.com' into text field 'id=email'.</msg>
+<msg time="2025-08-01T20:42:55.138888" level="INFO">Typing text 'pmcastro@example.com' into text field 'id=email'.</msg>
 <arg>${email_field}</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-01T04:25:25.592066" elapsed="0.189655"/>
+<status status="PASS" start="2025-08-01T20:42:55.138405" elapsed="0.186184"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:25.782426" level="INFO">Typing text 'password 1234!' into text field 'id=password'.</msg>
+<msg time="2025-08-01T20:42:55.325433" level="INFO">Typing text 'password 1234!' into text field 'id=password'.</msg>
 <arg>${password_field}</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-01T04:25:25.782010" elapsed="0.151709"/>
+<status status="PASS" start="2025-08-01T20:42:55.324913" elapsed="0.140975"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:25.934327" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<msg time="2025-08-01T20:42:55.466509" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
 <arg>xpath=//button[@type='submit']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-01T04:25:25.934007" elapsed="1.154949"/>
+<status status="PASS" start="2025-08-01T20:42:55.466184" elapsed="1.184458"/>
 </kw>
 <kw name="Wait Until Location Contains" owner="SeleniumLibrary">
 <arg>-homepage</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the current URL contains ``expected``.</doc>
-<status status="PASS" start="2025-08-01T04:25:27.089203" elapsed="0.009428"/>
+<status status="PASS" start="2025-08-01T20:42:56.650894" elapsed="0.009267"/>
 </kw>
 <kw name="Get Location" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:27.105815" level="INFO">${url} = http://localhost/client-homepage</msg>
+<msg time="2025-08-01T20:42:56.667608" level="INFO">${url} = http://localhost/client-homepage</msg>
 <var>${url}</var>
 <doc>Returns the current browser window URL.</doc>
-<status status="PASS" start="2025-08-01T04:25:27.098871" elapsed="0.007012"/>
+<status status="PASS" start="2025-08-01T20:42:56.660404" elapsed="0.007267"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-08-01T04:25:27.106326" level="INFO">Current URL: http://localhost/client-homepage</msg>
+<msg time="2025-08-01T20:42:56.668108" level="INFO">Current URL: http://localhost/client-homepage</msg>
 <arg>Current URL: ${url}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-08-01T04:25:27.106094" elapsed="0.000295"/>
+<status status="PASS" start="2025-08-01T20:42:56.667878" elapsed="0.000293"/>
 </kw>
 <if>
 <branch type="IF" condition="'${url}' == '${BASE_URL}/client-homepage'">
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-08-01T04:25:27.106972" level="INFO">Successfully logged in as Client.</msg>
+<msg time="2025-08-01T20:42:56.668732" level="INFO">Successfully logged in as Client.</msg>
 <arg>Successfully logged in as Client.</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-08-01T04:25:27.106841" elapsed="0.000190"/>
+<status status="PASS" start="2025-08-01T20:42:56.668610" elapsed="0.000188"/>
 </kw>
-<status status="PASS" start="2025-08-01T04:25:27.106521" elapsed="0.000567"/>
+<status status="PASS" start="2025-08-01T20:42:56.668305" elapsed="0.000638"/>
 </branch>
 <branch type="ELSE IF" condition="'${url}' == '${BASE_URL}/freelancer-homepage'">
 <kw name="Log" owner="BuiltIn">
 <arg>Successfully logged in as Freelancer.</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-08-01T04:25:27.107313" elapsed="0.000036"/>
+<status status="NOT RUN" start="2025-08-01T20:42:56.669160" elapsed="0.000037"/>
 </kw>
-<status status="NOT RUN" start="2025-08-01T04:25:27.107151" elapsed="0.000248"/>
+<status status="NOT RUN" start="2025-08-01T20:42:56.669022" elapsed="0.000234"/>
 </branch>
 <branch type="ELSE">
 <kw name="Fail" owner="BuiltIn">
 <arg>Login failed, still on login page.</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-08-01T04:25:27.107557" elapsed="0.000033"/>
+<status status="NOT RUN" start="2025-08-01T20:42:56.669417" elapsed="0.000036"/>
 </kw>
-<status status="NOT RUN" start="2025-08-01T04:25:27.107449" elapsed="0.000189"/>
+<status status="NOT RUN" start="2025-08-01T20:42:56.669307" elapsed="0.000196"/>
 </branch>
-<status status="PASS" start="2025-08-01T04:25:27.106481" elapsed="0.001198"/>
+<status status="PASS" start="2025-08-01T20:42:56.668263" elapsed="0.001282"/>
 </if>
 <arg>${CLIENT_EMAIL}</arg>
 <arg>${CLIENT_PASSWORD}</arg>
 <doc>This keyword logs in to the application using provided credentials.</doc>
-<status status="PASS" start="2025-08-01T04:25:23.025712" elapsed="4.082047"/>
+<status status="PASS" start="2025-08-01T20:42:52.520221" elapsed="4.149398"/>
+</kw>
+<kw name="Capture Overwrite Screenshot" owner="common">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2025-08-01T20:42:56.670836" level="INFO" html="true">Removed file '&lt;a href="file:///home/errol-john/Documents/capsure-automation-tests/screenshots/client/successful_login_client.png"&gt;/home/errol-john/Documents/capsure-automation-tests/screenshots/client/successful_login_client.png&lt;/a&gt;'.</msg>
+<arg>${screenshot_path}</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2025-08-01T20:42:56.670413" elapsed="0.000503"/>
+</kw>
+<arg>Remove File</arg>
+<arg>${screenshot_path}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-01T20:42:56.670224" elapsed="0.000794"/>
 </kw>
 <kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:27.311459" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/client/successful_login_client.png"&gt;&lt;img src="screenshots/client/successful_login_client.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>screenshots/client/successful_login_client.png</arg>
+<msg time="2025-08-01T20:42:56.976641" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/client/successful_login_client.png"&gt;&lt;img src="screenshots/client/successful_login_client.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${screenshot_path}</arg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-01T04:25:27.107992" elapsed="0.203612"/>
+<status status="PASS" start="2025-08-01T20:42:56.671160" elapsed="0.305626"/>
+</kw>
+<arg>screenshots/client/successful_login_client.png</arg>
+<doc>This keyword captures a screenshot and overwrites the existing one.</doc>
+<status status="PASS" start="2025-08-01T20:42:56.669880" elapsed="0.307036"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-01T04:25:27.311875" elapsed="0.078978"/>
+<status status="PASS" start="2025-08-01T20:42:56.977173" elapsed="0.078028"/>
 </kw>
 <doc>ID:  TC_CLNT_001a | Login with valid client credentials</doc>
-<status status="PASS" start="2025-08-01T04:25:23.024731" elapsed="4.366711"/>
+<status status="PASS" start="2025-08-01T20:42:52.518488" elapsed="4.537250"/>
 </test>
-<status status="PASS" start="2025-08-01T04:25:23.021508" elapsed="4.370840"/>
+<status status="PASS" start="2025-08-01T20:42:52.513194" elapsed="4.543143"/>
 </suite>
-<status status="PASS" start="2025-08-01T04:25:23.019838" elapsed="4.373611"/>
+<status status="PASS" start="2025-08-01T20:42:52.511358" elapsed="4.546066"/>
 </suite>
 <suite id="s1-s3" name="Freelancer" source="/home/errol-john/Documents/capsure-automation-tests/tests/freelancer">
 <suite id="s1-s3-s1" name="Account-Management" source="/home/errol-john/Documents/capsure-automation-tests/tests/freelancer/account-management.robot">
-<test id="s1-s3-s1-t1" name="Login As Freelancer" line="8">
-<kw name="Login to Application" owner="keywords">
+<test id="s1-s3-s1-t1" name="Sign Up Flow" line="8">
+<kw name="Sign Up Options" owner="common">
+<kw name="Open Browser To Application" owner="common">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:27.405363" level="INFO">Opening browser 'chrome' to base url 'http://localhost/login'.</msg>
-<arg>${LOGIN_URL}</arg>
-<arg>chrome</arg>
+<msg time="2025-08-01T20:42:57.075849" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/choose'.</msg>
+<arg>${BASE_URL}/${target_url}</arg>
+<arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-01T04:25:27.404918" elapsed="2.437209"/>
+<status status="PASS" start="2025-08-01T20:42:57.074855" elapsed="2.805348"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-01T20:42:59.880523" elapsed="0.042155"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-01T20:42:59.923264" level="INFO">Opened browser to http://localhost</msg>
+<arg>Opened browser to ${BASE_URL}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-01T20:42:59.922966" elapsed="0.000369"/>
+</kw>
+<arg>choose</arg>
+<doc>This keyword opens the browser to the application base URL plus the desired target URL.</doc>
+<status status="PASS" start="2025-08-01T20:42:57.073780" elapsed="2.849655"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-08-01T20:42:59.967672" level="INFO">Element 'xpath=//span[normalize-space()='Choose to Sign Up']' is displayed.</msg>
+<arg>xpath=//span[normalize-space()='Choose to Sign Up']</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-01T20:42:59.923591" elapsed="0.044207"/>
+</kw>
+<if>
+<branch type="IF" condition="$user_type == 'freelancer'">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-01T20:42:59.968547" level="INFO">Clicking element 'css=[data-page="freelancer"]'.</msg>
+<arg>css=[data-page="freelancer"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-01T20:42:59.968308" elapsed="0.119317"/>
+</kw>
+<status status="PASS" start="2025-08-01T20:42:59.967961" elapsed="0.119776"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=[data-page="client"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-01T20:43:00.088017" elapsed="0.000049"/>
+</kw>
+<status status="NOT RUN" start="2025-08-01T20:43:00.087806" elapsed="0.000313"/>
+</branch>
+<status status="PASS" start="2025-08-01T20:42:59.967923" elapsed="0.120241"/>
+</if>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-01T20:43:00.088533" level="INFO">Clicking button 'id=continueBtn'.</msg>
+<arg>id=continueBtn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-01T20:43:00.088280" elapsed="1.370410"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-01T20:43:01.459221" level="INFO">Navigated to Sign Up page</msg>
+<arg>Navigated to Sign Up page</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-01T20:43:01.458973" elapsed="0.000319"/>
+</kw>
+<arg>freelancer</arg>
+<doc>This keyword navigates to the sign-up options page.</doc>
+<status status="PASS" start="2025-08-01T20:42:57.072806" elapsed="4.386589"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-08-01T20:43:01.459735" elapsed="0.086060"/>
+</kw>
+<doc>ID:  TC_FRLNCR_001a | Register with valid inputs</doc>
+<status status="PASS" start="2025-08-01T20:42:57.071700" elapsed="4.474490"/>
+</test>
+<test id="s1-s3-s1-t2" name="Login As Freelancer" line="15">
+<kw name="Login to Application" owner="common">
+<kw name="Open Browser To Application" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-01T20:43:01.549656" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/login'.</msg>
+<arg>${BASE_URL}/${target_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-01T20:43:01.549252" elapsed="2.884122"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-01T20:43:04.433671" elapsed="0.048924"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-01T20:43:04.483400" level="INFO">Opened browser to http://localhost</msg>
+<arg>Opened browser to ${BASE_URL}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-01T20:43:04.483009" elapsed="0.000477"/>
+</kw>
+<arg>login</arg>
+<doc>This keyword opens the browser to the application base URL plus the desired target URL.</doc>
+<status status="PASS" start="2025-08-01T20:43:01.548822" elapsed="2.935024"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:29.842934" level="INFO">Typing text 'daisy3@example.com' into text field 'id=email'.</msg>
+<msg time="2025-08-01T20:43:04.484615" level="INFO">Typing text 'daisy3@example.com' into text field 'id=email'.</msg>
 <arg>${email_field}</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-01T04:25:29.842471" elapsed="0.187553"/>
+<status status="PASS" start="2025-08-01T20:43:04.484164" elapsed="0.184631"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:30.030600" level="INFO">Typing text 'password 3' into text field 'id=password'.</msg>
+<msg time="2025-08-01T20:43:04.669448" level="INFO">Typing text 'password 3' into text field 'id=password'.</msg>
 <arg>${password_field}</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-01T04:25:30.030275" elapsed="0.157455"/>
+<status status="PASS" start="2025-08-01T20:43:04.669081" elapsed="0.141002"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:30.188438" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<msg time="2025-08-01T20:43:04.810589" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
 <arg>xpath=//button[@type='submit']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-01T04:25:30.188052" elapsed="1.128060"/>
+<status status="PASS" start="2025-08-01T20:43:04.810330" elapsed="1.113913"/>
 </kw>
 <kw name="Wait Until Location Contains" owner="SeleniumLibrary">
 <arg>-homepage</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the current URL contains ``expected``.</doc>
-<status status="PASS" start="2025-08-01T04:25:31.316425" elapsed="0.008746"/>
+<status status="PASS" start="2025-08-01T20:43:05.924652" elapsed="0.010313"/>
 </kw>
 <kw name="Get Location" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:31.332515" level="INFO">${url} = http://localhost/freelancer-homepage</msg>
+<msg time="2025-08-01T20:43:05.942565" level="INFO">${url} = http://localhost/freelancer-homepage</msg>
 <var>${url}</var>
 <doc>Returns the current browser window URL.</doc>
-<status status="PASS" start="2025-08-01T04:25:31.325431" elapsed="0.007147"/>
+<status status="PASS" start="2025-08-01T20:43:05.935344" elapsed="0.007281"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-08-01T04:25:31.333000" level="INFO">Current URL: http://localhost/freelancer-homepage</msg>
+<msg time="2025-08-01T20:43:05.943060" level="INFO">Current URL: http://localhost/freelancer-homepage</msg>
 <arg>Current URL: ${url}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-08-01T04:25:31.332785" elapsed="0.000277"/>
+<status status="PASS" start="2025-08-01T20:43:05.942832" elapsed="0.000294"/>
 </kw>
 <if>
 <branch type="IF" condition="'${url}' == '${BASE_URL}/client-homepage'">
 <kw name="Log" owner="BuiltIn">
 <arg>Successfully logged in as Client.</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-08-01T04:25:31.333488" elapsed="0.000040"/>
+<status status="NOT RUN" start="2025-08-01T20:43:05.943526" elapsed="0.000039"/>
 </kw>
-<status status="NOT RUN" start="2025-08-01T04:25:31.333185" elapsed="0.000395"/>
+<status status="NOT RUN" start="2025-08-01T20:43:05.943243" elapsed="0.000376"/>
 </branch>
 <branch type="ELSE IF" condition="'${url}' == '${BASE_URL}/freelancer-homepage'">
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-08-01T04:25:31.333991" level="INFO">Successfully logged in as Freelancer.</msg>
+<msg time="2025-08-01T20:43:05.944055" level="INFO">Successfully logged in as Freelancer.</msg>
 <arg>Successfully logged in as Freelancer.</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-08-01T04:25:31.333855" elapsed="0.000204"/>
+<status status="PASS" start="2025-08-01T20:43:05.943906" elapsed="0.000216"/>
 </kw>
-<status status="PASS" start="2025-08-01T04:25:31.333631" elapsed="0.000482"/>
+<status status="PASS" start="2025-08-01T20:43:05.943670" elapsed="0.000509"/>
 </branch>
 <branch type="ELSE">
 <kw name="Fail" owner="BuiltIn">
 <arg>Login failed, still on login page.</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-08-01T04:25:31.334292" elapsed="0.000040"/>
+<status status="NOT RUN" start="2025-08-01T20:43:05.944338" elapsed="0.000035"/>
 </kw>
-<status status="NOT RUN" start="2025-08-01T04:25:31.334165" elapsed="0.000220"/>
+<status status="NOT RUN" start="2025-08-01T20:43:05.944227" elapsed="0.000196"/>
 </branch>
-<status status="PASS" start="2025-08-01T04:25:31.333151" elapsed="0.001282"/>
+<status status="PASS" start="2025-08-01T20:43:05.943212" elapsed="0.001253"/>
 </if>
 <arg>${FREELANCER_EMAIL}</arg>
 <arg>${FREELANCER_PASSWORD}</arg>
 <doc>This keyword logs in to the application using provided credentials.</doc>
-<status status="PASS" start="2025-08-01T04:25:27.403883" elapsed="3.930634"/>
+<status status="PASS" start="2025-08-01T20:43:01.548100" elapsed="4.396434"/>
+</kw>
+<kw name="Capture Overwrite Screenshot" owner="common">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2025-08-01T20:43:05.945656" level="INFO" html="true">Removed file '&lt;a href="file:///home/errol-john/Documents/capsure-automation-tests/screenshots/freelancer/successful_login_freelancer.png"&gt;/home/errol-john/Documents/capsure-automation-tests/screenshots/freelancer/successful_login_freelancer.png&lt;/a&gt;'.</msg>
+<arg>${screenshot_path}</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2025-08-01T20:43:05.945343" elapsed="0.000391"/>
+</kw>
+<arg>Remove File</arg>
+<arg>${screenshot_path}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-01T20:43:05.945171" elapsed="0.000641"/>
 </kw>
 <kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-08-01T04:25:31.517927" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/freelancer/successful_login_freelancer.png"&gt;&lt;img src="screenshots/freelancer/successful_login_freelancer.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>screenshots/freelancer/successful_login_freelancer.png</arg>
+<msg time="2025-08-01T20:43:06.213141" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/freelancer/successful_login_freelancer.png"&gt;&lt;img src="screenshots/freelancer/successful_login_freelancer.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${screenshot_path}</arg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-01T04:25:31.334728" elapsed="0.183367"/>
+<status status="PASS" start="2025-08-01T20:43:05.945945" elapsed="0.267346"/>
 </kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-01T04:25:31.518413" elapsed="0.081854"/>
+<arg>screenshots/freelancer/successful_login_freelancer.png</arg>
+<doc>This keyword captures a screenshot and overwrites the existing one.</doc>
+<status status="PASS" start="2025-08-01T20:43:05.944791" elapsed="0.268633"/>
 </kw>
-<doc>ID:  TC_FRLNCR_001a | Login with valid freelancer credentials</doc>
-<status status="PASS" start="2025-08-01T04:25:27.400433" elapsed="4.200503"/>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-08-01T20:43:06.213771" elapsed="0.087437"/>
+</kw>
+<doc>ID:  TC_FRLNCR_002a | Login with valid freelancer credentials</doc>
+<status status="PASS" start="2025-08-01T20:43:01.546961" elapsed="4.754485"/>
 </test>
-<status status="PASS" start="2025-08-01T04:25:27.396290" elapsed="4.205339"/>
+<status status="PASS" start="2025-08-01T20:42:57.060308" elapsed="9.241654"/>
 </suite>
-<status status="PASS" start="2025-08-01T04:25:27.394059" elapsed="4.208765"/>
+<status status="PASS" start="2025-08-01T20:42:57.057982" elapsed="9.244729"/>
 </suite>
-<status status="PASS" start="2025-08-01T04:25:18.184027" elapsed="13.419997"/>
+<status status="PASS" start="2025-08-01T20:42:46.433814" elapsed="19.869458"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Tests" id="s1" pass="3" fail="0" skip="0">Tests</stat>
+<stat name="Tests" id="s1" pass="4" fail="0" skip="0">Tests</stat>
 <stat name="Admin" id="s1-s1" pass="1" fail="0" skip="0">Tests.Admin</stat>
 <stat name="Account-Management" id="s1-s1-s1" pass="1" fail="0" skip="0">Tests.Admin.Account-Management</stat>
 <stat name="Client" id="s1-s2" pass="1" fail="0" skip="0">Tests.Client</stat>
 <stat name="Account-Management" id="s1-s2-s1" pass="1" fail="0" skip="0">Tests.Client.Account-Management</stat>
-<stat name="Freelancer" id="s1-s3" pass="1" fail="0" skip="0">Tests.Freelancer</stat>
-<stat name="Account-Management" id="s1-s3-s1" pass="1" fail="0" skip="0">Tests.Freelancer.Account-Management</stat>
+<stat name="Freelancer" id="s1-s3" pass="2" fail="0" skip="0">Tests.Freelancer</stat>
+<stat name="Account-Management" id="s1-s3-s1" pass="2" fail="0" skip="0">Tests.Freelancer.Account-Management</stat>
 </suite>
 </statistics>
 <errors>

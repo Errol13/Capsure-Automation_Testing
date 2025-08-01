@@ -1,12 +1,18 @@
 *** Settings ***
 Library  SeleniumLibrary
 Resource  ../../variables/variables.robot
-Resource  ../../variables/keywords.robot
-
+Resource  ../../resources/common.robot
+Test Teardown  Close All Browsers
 
 *** Test Cases ***
+Sign Up Flow 
+    [Documentation]  ID:  TC_FRLNCR_001a | Register with valid inputs
+    Sign Up Options    freelancer
+
+    #Capture Page Screenshot  screenshots/signup/signup_options_page.png
+
+
 Login As Freelancer
-    [Documentation]  ID:  TC_FRLNCR_001a | Login with valid freelancer credentials
+    [Documentation]  ID:  TC_FRLNCR_002a | Login with valid freelancer credentials
     Login to Application  ${FREELANCER_EMAIL}  ${FREELANCER_PASSWORD}
-    Capture Page Screenshot  screenshots/freelancer/successful_login_freelancer.png
-    Close Browser
+    Capture Overwrite Screenshot  screenshots/freelancer/successful_login_freelancer.png
