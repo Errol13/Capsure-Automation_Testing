@@ -1,4 +1,5 @@
 *** Settings ***
+Library  RequestsLibrary
 Library  SeleniumLibrary
 Resource  ../variables/variables.robot
 Resource    common.robot
@@ -23,6 +24,13 @@ Freelancer Sign Up Flow
     Input Text    id=city     CityVille
     Click Element    xpath=//button[@type='submit']
     Wait Until Location Contains    verify  timeout=20s
+    ${verification_link}=  Wait For Verification Email And Get Link    daisysoares@example.com
+    #Visit the link 
+    Go To   ${verification_link}
+    Sleep   1s
+    Reload Page
+    #Assert if the user is redirected to the homepage
+    Wait Until Location Contains    expected=freelancer-homepage  timeout=10s
 
 
  

@@ -1,6 +1,9 @@
 *** Settings ***
+Library  RequestsLibrary
 Library  SeleniumLibrary
 Library    ../venv/lib/python3.12/site-packages/robot/libraries/OperatingSystem.py
+Library    ../venv/lib/python3.12/site-packages/robot/libraries/Collections.py
+Library    ../venv/lib/python3.12/site-packages/robot/libraries/String.py
 Resource  ../variables/variables.robot
 
 *** Keywords ***
@@ -48,3 +51,46 @@ Capture Overwrite Screenshot
     [Arguments]    ${screenshot_path}
     Run Keyword And Ignore Error    Remove File    ${screenshot_path}
     Capture Page Screenshot  ${screenshot_path}
+
+Wait For Verification Email And Get Link
+    [Arguments]    ${recipient_email}     ${timeout}=10s
+    ${auth_header}=    Create Dictionary    Authorization=Bearer ${API_TOKEN}
+    Create Session    mailtrap    https://mailtrap.io/api/accounts/${ACCOUNT_ID}    headers=${auth_header}    verify=True
+    ${max}=    Convert To Integer    ${timeout[:-1]}
+    FOR    ${i}    IN RANGE    ${max}
+        Sleep    1s
+        ${resp}=    GET On Session    mailtrap    /inboxes/${INBOX_ID}/messages
+        Log    Mailtrap messages endpoint returned status: ${resp.status_code}
+        Log   Raw response body: ${resp.text}
+        Should Be Equal As Integers    ${resp.status_code}    200
+        ${messages}=    Set Variable    ${resp.json()}
+        Log  Parsed JSON : ${messages}
+        ${message_id}=    Set Variable    ${NONE}
+        FOR    ${msg}    IN    @{messages}
+           ${to_email}=    Get From Dictionary    ${msg}    to_email
+           Log To Console    RAW to_email: '${to_email}'
+            Log To Console    RAW recipient_email: '${recipient_email}'
+            ${to_email_normalized}=    Convert To Lowercase    ${to_email}
+            ${recipient_normalized}=   Convert To Lowercase    ${recipient_email}
+            Log To Console    Considering message to: ${to_email_normalized}
+            IF    '${to_email_normalized}' == '${recipient_normalized}'
+                ${message_id}=    Set Variable    ${msg['id']}
+                Log To Console    MATCH FOUND, message_id: ${message_id}
+                Exit For Loop
+            END
+        END
+        Run Keyword If    not ${message_id}    Continue For Loop
+        ${body_resp}=    GET On Session    mailtrap    /inboxes/${INBOX_ID}/messages/${message_id}/body.txt
+        Should Be Equal As Integers    ${body_resp.status_code}    200
+        ${body}=    Set Variable    ${body_resp.text}
+        ${matches}=    Get Regexp Matches  ${body}    ${VERIFY_REGEX}   
+        Log To Console    Match:${matches}
+        Run Keyword If    not ${matches}    Fail    Could not extract verification link from email body.
+        ${raw_link}=    Set Variable    ${matches[0]}
+        ${link}=   Replace String Using Regexp    ${raw_link}    [\]\)\.]+$    ${EMPTY}
+        Log To Console    ${link}
+        Return From Keyword   ${link}
+
+    END
+    Fail    Verification email did not arrive for ${recipient_email} after ${timeout}
+

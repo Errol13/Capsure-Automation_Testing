@@ -10,7 +10,7 @@ Sign Up Flow
     [Documentation]  ID:  TC_FRLNCR_001a | Register with valid inputs
     Sign Up Options    freelancer
     Freelancer Sign Up Flow  
-    #Capture Page Screenshot  screenshots/signup/signup_options_page.png
+    Capture Overwrite Screenshot  screenshots/freelancer/sign_up_valid.png
 
 
 Login As Freelancer
