@@ -12,6 +12,11 @@ Sign Up Flow
     Freelancer Sign Up Flow  
     Capture Overwrite Screenshot  screenshots/freelancer/sign_up_valid.png
 
+Invalid Sign Up Flow
+    [Documentation]  ID:  TC_FRLNCR_001b | Register with invalid inputs
+    Sign Up Options    freelancer
+    Invalid Freelancer Sign Up Flow 
+    Capture Overwrite Screenshot  screenshots/freelancer/sign_up_invalid.png
 
 Login As Freelancer
     [Documentation]  ID:  TC_FRLNCR_002a | Login with valid freelancer credentials

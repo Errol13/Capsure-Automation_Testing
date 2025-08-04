@@ -18,7 +18,7 @@ Sign Up Options
     [Documentation]    This keyword navigates to the sign-up options page.
     [Arguments]    ${user_type}
     Open Browser To Application  choose
-    Element Should Be Visible  xpath=//span[normalize-space()='Choose to Sign Up']
+    Element Should Be Visible  xpath=//span[normalize-space(.)='Choose to Sign Up']
     IF    $user_type == 'freelancer'
         Click Element  css=[data-page="freelancer"]
     ELSE
@@ -93,4 +93,3 @@ Wait For Verification Email And Get Link
 
     END
     Fail    Verification email did not arrive for ${recipient_email} after ${timeout}
-
