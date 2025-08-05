@@ -27,13 +27,18 @@ Sign Up Options
     Click Button    id=continueBtn
     Log  Navigated to Sign Up page
 
+Login Enter Email and Password 
+    [Documentation]    This keyword enters the email and password into the login form.
+    [Arguments]    ${email}    ${password}
+    Open Browser To Application  login
+    Input Text  id=email  ${email}
+    Input Password  id=password  ${password}
+    Click Button  xpath=//button[@type='submit']
+
 Login to Application 
     [Documentation]    This keyword logs in to the application using provided credentials.
     [Arguments]    ${email}    ${password}
-    Open Browser To Application  login
-    Input Text    ${email_field}   ${email}
-    Input Text    ${password_field}   ${password}
-    Click Button  xpath=//button[@type='submit']
+    Login Enter Email and Password    ${email}    ${password}
     Wait Until Location Contains    -homepage    timeout=10s
     #Verify if what user is logged in
     ${url}=  Get Location
@@ -60,22 +65,22 @@ Wait For Verification Email And Get Link
     FOR    ${i}    IN RANGE    ${max}
         Sleep    1s
         ${resp}=    GET On Session    mailtrap    /inboxes/${INBOX_ID}/messages
-        Log    Mailtrap messages endpoint returned status: ${resp.status_code}
-        Log   Raw response body: ${resp.text}
+        #Log    Mailtrap messages endpoint returned status: ${resp.status_code}
+        #Log   Raw response body: ${resp.text}
         Should Be Equal As Integers    ${resp.status_code}    200
         ${messages}=    Set Variable    ${resp.json()}
-        Log  Parsed JSON : ${messages}
+        #Log  Parsed JSON : ${messages}
         ${message_id}=    Set Variable    ${NONE}
         FOR    ${msg}    IN    @{messages}
            ${to_email}=    Get From Dictionary    ${msg}    to_email
-           Log To Console    RAW to_email: '${to_email}'
-            Log To Console    RAW recipient_email: '${recipient_email}'
+           #Log To Console    RAW to_email: '${to_email}'
+           #Log To Console    RAW recipient_email: '${recipient_email}'
             ${to_email_normalized}=    Convert To Lowercase    ${to_email}
             ${recipient_normalized}=   Convert To Lowercase    ${recipient_email}
-            Log To Console    Considering message to: ${to_email_normalized}
+            #Log To Console    Considering message to: ${to_email_normalized}
             IF    '${to_email_normalized}' == '${recipient_normalized}'
                 ${message_id}=    Set Variable    ${msg['id']}
-                Log To Console    MATCH FOUND, message_id: ${message_id}
+                #Log To Console    MATCH FOUND, message_id: ${message_id}
                 Exit For Loop
             END
         END
@@ -84,11 +89,11 @@ Wait For Verification Email And Get Link
         Should Be Equal As Integers    ${body_resp.status_code}    200
         ${body}=    Set Variable    ${body_resp.text}
         ${matches}=    Get Regexp Matches  ${body}    ${VERIFY_REGEX}   
-        Log To Console    Match:${matches}
+        #Log To Console    Match:${matches}
         Run Keyword If    not ${matches}    Fail    Could not extract verification link from email body.
         ${raw_link}=    Set Variable    ${matches[0]}
         ${link}=   Replace String Using Regexp    ${raw_link}    [\]\)\.]+$    ${EMPTY}
-        Log To Console    ${link}
+        #Log To Console    ${link}
         Return From Keyword   ${link}
 
     END

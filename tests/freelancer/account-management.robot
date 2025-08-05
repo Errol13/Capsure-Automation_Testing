@@ -22,3 +22,9 @@ Login As Freelancer
     [Documentation]  ID:  TC_FRLNCR_002a | Login with valid freelancer credentials
     Login to Application  ${FREELANCER_EMAIL}  ${FREELANCER_PASSWORD}
     Capture Overwrite Screenshot  screenshots/freelancer/successful_login_freelancer.png
+
+Invalid Login As Freelancer
+    [Documentation]  ID:  TC_FRLNCR_002b | Login with invalid freelancer credentials
+    Login Enter Email and Password   ${FREELANCER_EMAIL}  wrongpassword
+    Wait Until Element Is Visible   xpath=//span[normalize-space(.)="These credentials do not match our records."]
+    Capture Overwrite Screenshot  screenshots/freelancer/unsuccessful_login_freelancer.png

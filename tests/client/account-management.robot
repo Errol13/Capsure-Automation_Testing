@@ -25,3 +25,10 @@ Login As Client
     Login to Application  ${CLIENT_EMAIL}  ${CLIENT_PASSWORD}
     Capture Overwrite Screenshot  screenshots/client/successful_login_client.png
     Close Browser
+
+Invalid Login As Client
+    [Documentation]  ID:  TC_CLNT_002b | Login with invalid client credentials
+    Login Enter Email and Password   ${CLIENT_EMAIL}  wrongpassword
+    Wait Until Element Is Visible   xpath=//span[@class='invalid-feedback' and @role='alert' and contains(., "These credentials do not match our records.") ]
+    Capture Overwrite Screenshot  screenshots/client/unsuccessful_login_client.png
+    Close Browser
