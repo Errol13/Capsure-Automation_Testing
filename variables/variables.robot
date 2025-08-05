@@ -19,9 +19,14 @@ ${ADMIN_EMAIL}  admin@gmail.com
 ${FREELANCER_EMAIL}  daisy3@example.com
 ${FREELANCER_PASSWORD}  password 3
 
+${FREELANCER_SIGNUP_EMAIL}  daisysoares@example.com
+${FREELANCER_SIGNUP_PASSWORD}  daisysoares 1234
+
 #Client Credentials and URLs
 ${CLIENT_EMAIL}  pmcastro@example.com
 ${CLIENT_PASSWORD}  password 1234!
+${CLIENT_SIGNUP_EMAIL}    redwyvern@example.com
+${CLIENT_SIGNUP_PASSWORD}    redwyvern 1234
 
 #Mail API
 ${MAILTRAP_API_BASE_URL}  https://mailtrap.io
