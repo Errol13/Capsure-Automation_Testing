@@ -33,5 +33,6 @@ ${MAILTRAP_API_BASE_URL}  https://mailtrap.io
 ${INBOX_ID}    %{MAILTRAP_INBOX_ID}           # inbox ID
 ${API_TOKEN}   %{MAILTRAP_API_KEY}        # Mailtrap API token
 ${VERIFY_REGEX}    https?://localhost/email/verify\\S+
+${RESET_PASSWORD_REGEX}    https?://localhost/password/reset\\S+
 ${ACCOUNT_ID}  %{ACCOUNT_ID}  # Account ID for Mailtrap
 

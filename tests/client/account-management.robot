@@ -32,3 +32,8 @@ Invalid Login As Client
     Wait Until Element Is Visible   xpath=//span[@class='invalid-feedback' and @role='alert' and contains(., "These credentials do not match our records.") ]
     Capture Overwrite Screenshot  screenshots/client/unsuccessful_login_client.png
     Close Browser
+
+Reset Password As Client
+    [Documentation]  ID:  TC_CLNT_003 | Reset password for client account
+    Reset Password  ${CLIENT_EMAIL}  newpassword1234!
+    Capture Overwrite Screenshot  screenshots/client/reset_password_client.png

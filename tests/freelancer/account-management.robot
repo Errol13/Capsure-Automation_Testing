@@ -28,3 +28,8 @@ Invalid Login As Freelancer
     Login Enter Email and Password   ${FREELANCER_EMAIL}  wrongpassword
     Wait Until Element Is Visible   xpath=//span[normalize-space(.)="These credentials do not match our records."]
     Capture Overwrite Screenshot  screenshots/freelancer/unsuccessful_login_freelancer.png
+
+Reset Password As Freelancer
+    [Documentation]  ID:  TC_FRLNCR_003 | Reset password for freelancer account
+    Reset Password  ${FREELANCER_EMAIL}  newpassword1234!
+    Capture Overwrite Screenshot  screenshots/freelancer/reset_password_freelancer.png
